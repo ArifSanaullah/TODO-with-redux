@@ -4,26 +4,24 @@ import PropTypes from "prop-types";
 
 const Input = (props) => {
   const {
-    value,
+    todoValue,
     type,
     placeholder,
     changeHandler,
     clickHandler,
     keyDownHandler,
-    completed
+    checked
   } = props;
   return (
-    <div className="inputContainer">
-      <input
-        value={value}
-        type={type}
-        placeholder={placeholder}
-        checked={completed}
-        onClick={clickHandler}
-        onKeyDown={keyDownHandler}
-        onChange={changeHandler}
-      />
-    </div>
+    <input
+      value={todoValue}
+      type={type}
+      placeholder={placeholder}
+      onClick={clickHandler}
+      onKeyDown={keyDownHandler}
+      onChange={changeHandler}
+      defaultChecked={checked}
+    />
   );
 };
 
@@ -34,7 +32,7 @@ Input.propTypes = {
   changeHandler: PropTypes.func,
   clickHandler: PropTypes.func,
   keyDownHandler: PropTypes.func,
-  completed: PropTypes.bool
+  checked: PropTypes.bool
 };
 
 export default connect()(Input);

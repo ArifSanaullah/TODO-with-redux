@@ -6,14 +6,13 @@ import * as actions from "../../actions";
 
 class Todos extends Component {
   render() {
-    const { renderedTodos, todo, dispatch, completed } = this.props;
+    const { renderedTodos, todo, dispatch } = this.props;
     const {
       addTodo,
       searchTodo,
       deleteTodo,
       changeHandler
     } = actions;
-    const dummy = { todo: todo, completed: completed };
     return (
       <div>
         <Input
@@ -24,18 +23,17 @@ class Todos extends Component {
         <Input
           placeholder="Add Todo"
           type="text"
-          value={todo}
+          todoValue={todo.value}
           keyDownHandler={(e) => dispatch(addTodo(e))}
-          changeHandler={(e) => dispatch(changeHandler(e))}
+          changeHandler={(e) => dispatch(changeHandler(e, todo))}
         />
         <ul>
           {renderedTodos &&
             renderedTodos.map((todo, index) => (
               <TodoComponent
-                todoValue={todo}
+                todo={todo}
                 key={index}
-                dummy={dummy}
-                deleteHandler={() => dispatch(deleteTodo(todo))}
+                deleteHandler={() => dispatch(deleteTodo(todo.value))}
               />
             ))}
         </ul>
