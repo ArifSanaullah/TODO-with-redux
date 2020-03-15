@@ -5,7 +5,7 @@ import TodosComponent from "./components/Todos.component/Todos.component";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <TodosComponent />
     </div>
   );

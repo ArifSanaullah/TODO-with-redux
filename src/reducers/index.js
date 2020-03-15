@@ -12,7 +12,11 @@ const initialState = {
     id: Date.now()
   },
   todos: [],
-  renderedTodos: []
+  renderedTodos: [{
+    value: "Hello world",
+    completed: false,
+    id: Date.now()
+  },]
 };
 
 const reducer = (state = initialState, action) => {

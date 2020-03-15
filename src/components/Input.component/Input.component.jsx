@@ -21,6 +21,7 @@ const Input = (props) => {
       onKeyDown={keyDownHandler}
       onChange={changeHandler}
       defaultChecked={checked}
+      className="input"
     />
   );
 };

@@ -1,6 +1,6 @@
 export default function(state, action) {
   const renderedTodos = state.todos.filter(
-    (todo) => todo.value !== action.payload.todoValue
+    (todo) => todo.id !== action.payload.todoid
   );
   return {
     ...state,

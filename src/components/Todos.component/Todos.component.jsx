@@ -14,8 +14,9 @@ class Todos extends Component {
       changeHandler
     } = actions;
     return (
-      <div>
-        <Input
+      <div className="todosListContainer">
+        <div className="header">
+          <Input
           placeholder="Search Todo"
           type="search"
           changeHandler={(e) => dispatch(searchTodo(e))}
@@ -27,16 +28,19 @@ class Todos extends Component {
           keyDownHandler={(e) => dispatch(addTodo(e))}
           changeHandler={(e) => dispatch(changeHandler(e, todo))}
         />
-        <ul>
+        </div>
+        <div className="body">
+          <ul className="todoList">
           {renderedTodos &&
             renderedTodos.map((todo, index) => (
               <TodoComponent
                 todo={todo}
                 key={index}
-                deleteHandler={() => dispatch(deleteTodo(todo.value))}
+                deleteHandler={() => dispatch(deleteTodo(todo.id))}
               />
             ))}
         </ul>
+        </div>
       </div>
     );
   }

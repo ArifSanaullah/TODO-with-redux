@@ -12,8 +12,8 @@ export const changeHandler = (e, todo) => {
   return { type: actionTypes.changeHandler, payload: { todo: { ...todo, value: e.target.value} } };
 };
 
-export const deleteTodo = (todoValue) => {
-  return { type: actionTypes.deleteTodo, payload: { todoValue } };
+export const deleteTodo = (todoid) => {
+  return { type: actionTypes.deleteTodo, payload: { todoid } };
 };
 
 export const searchTodo = (e) => {
