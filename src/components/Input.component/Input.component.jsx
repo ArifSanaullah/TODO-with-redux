@@ -10,7 +10,8 @@ const Input = (props) => {
     changeHandler,
     clickHandler,
     keyDownHandler,
-    checked
+    checked,
+    classname
   } = props;
   return (
     <input
@@ -21,7 +22,7 @@ const Input = (props) => {
       onKeyDown={keyDownHandler}
       onChange={changeHandler}
       defaultChecked={checked}
-      className="input"
+      className={classname}
     />
   );
 };

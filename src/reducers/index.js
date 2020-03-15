@@ -4,6 +4,9 @@ import deleteTodo from "./deleteTodo.reducer";
 import changeHandler from "./changeHandler.reducer";
 import searchTodo from "./searchTodo.reducer";
 import handleCompleted from "./handleCompleted.reducer";
+import showAll from "./showAll.reducer";
+import showActive from "./showActive.reducer";
+import showCompleted from "./showCompleted.reducer";
 
 const initialState = {
   todo: {
@@ -12,11 +15,7 @@ const initialState = {
     id: Date.now()
   },
   todos: [],
-  renderedTodos: [{
-    value: "Hello world",
-    completed: false,
-    id: Date.now()
-  },]
+  renderedTodos: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,6 +34,15 @@ const reducer = (state = initialState, action) => {
 
     case actionTypes.handleCompleted:
       return handleCompleted(state, action);
+    
+    case actionTypes.showAll:
+      return showAll(state, action);
+    
+    case actionTypes.showActive:
+      return showActive(state, action);
+    
+    case actionTypes.showCompleted:
+      return showCompleted(state, action);
 
     default:
       return state;

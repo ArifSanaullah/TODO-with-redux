@@ -6,3 +6,6 @@ export const editTodo = actionTypes.EDIT_TODO;
 export const searchTodo = actionTypes.SEARCH_TODO;
 export const changeHandler = actionTypes.HANDLE_CHANGE;
 export const handleCompleted = actionTypes.HANDLE_COMPLETED;
+export const showAll = actionTypes.SHOW_ALL;
+export const showActive = actionTypes.SHOW_ACTIVE;
+export const showCompleted = actionTypes.SHOW_COMPLETED;

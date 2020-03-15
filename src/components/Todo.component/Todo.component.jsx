@@ -10,12 +10,18 @@ function Todo(props) {
       <Input
         type="checkbox"
         checked={todo.completed}
+        classname="inputCheckbox"
         clickHandler={() => props.dispatch(actions.handleCompleted(todo))}
       />
       <span className={`${todo.completed && "completedTodoItem"} todoText`}>
         {todo.value}
       </span>
-      <Input todoValue="&#xd7;" type="button" clickHandler={deleteHandler}>Delete Todo</Input>
+      <Input
+        todoValue="&#xd7;"
+        classname="inputBtn"
+        type="button"
+        clickHandler={deleteHandler}
+      />
     </li>
   );
 }

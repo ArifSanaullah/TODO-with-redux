@@ -57,7 +57,7 @@ code {
   width: 100%;
   background-color: #f9f9f9;
   border-radius: 3px;
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 0.8rem;
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -79,8 +79,8 @@ code {
   background-color: #f9f9f9;
 }
 
-.input[type="text"],
-.input[type="search"] {
+.inputText,
+.inputSearch {
   padding: 0.5rem 0.3rem;
   border-radius: 1px;
   border: none;
@@ -92,7 +92,11 @@ code {
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
 }
 
-.input[type="checkbox"] {
+.inputText {
+  margin-bottom: 1rem;
+}
+
+.inputCheckbox {
   padding: 0;
   padding-left: 0;
   position: relative;
@@ -100,17 +104,18 @@ code {
   height: 1rem;
   visibility: hidden;
   cursor: pointer;
+  margin-right: 0.5rem;
 }
 
-.input[type="checkbox"]::before,
-.input[type="checkbox"]::after {
+.inputCheckbox::before,
+.inputCheckbox::after {
   content: "";
   display: block;
   position: absolute;
   border-radius: 50%;
 }
 
-.input[type="checkbox"]::before {
+.inputCheckbox::before {
   width: 1rem;
   height: 1rem;
   top: -2px;
@@ -119,7 +124,7 @@ code {
   visibility: visible;
 }
 
-.input[type="checkbox"]::after {
+.inputCheckbox::after {
   top: 2px;
   left: 1px;
   width: 0.7rem;
@@ -127,11 +132,11 @@ code {
   background-color: #333333;
 }
 
-.input[type="checkbox"]:checked::after {
+.inputCheckbox:checked::after {
   visibility: visible;
 }
 
-.input[type="button"] {
+.inputBtn {
   background: none;
   border: 1px solid transparent;
   cursor: pointer;
@@ -140,5 +145,23 @@ code {
   height: auto;
   line-height: 20px;
   font-size: 2rem;
+  outline: none;
+}
+
+.footer {
+  width: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.inputLink {
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  color: #333333;
+  cursor: pointer;
   outline: none;
 }

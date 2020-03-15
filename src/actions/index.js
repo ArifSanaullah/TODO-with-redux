@@ -4,12 +4,15 @@ export const addTodo = (e) => {
   return {
     type: actionTypes.addTodo,
     whichKey: e.which,
-    payload: { todo: {value: e.target.value} }
+    payload: { todo: { value: e.target.value } }
   };
 };
 
 export const changeHandler = (e, todo) => {
-  return { type: actionTypes.changeHandler, payload: { todo: { ...todo, value: e.target.value} } };
+  return {
+    type: actionTypes.changeHandler,
+    payload: { todo: { ...todo, value: e.target.value } }
+  };
 };
 
 export const deleteTodo = (todoid) => {
@@ -27,5 +30,26 @@ export const handleCompleted = (todo) => {
   return {
     type: actionTypes.handleCompleted,
     payload: { ...todo }
+  };
+};
+
+export const showAll = (todos) => {
+  return {
+    type: actionTypes.showAll,
+    payload: { todos }
+  };
+};
+
+export const showActive = (todos) => {
+  return {
+    type: actionTypes.showActive,
+    payload: { todos }
+  };
+};
+
+export const showCompleted = (todos) => {
+  return {
+    type: actionTypes.showCompleted,
+    payload: { todos }
   };
 };
