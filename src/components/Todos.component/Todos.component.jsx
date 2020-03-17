@@ -2,12 +2,22 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import TodoComponent from "../Todo.component/Todo.component";
 import Input from "../Input.component/Input.component";
-import * as actions from "../../actions";
+// import * as actions from "../../actions";
+// use library or module level destructuring here 
+import {
+  addTodo,
+  searchTodo,
+  deleteTodo,
+  changeHandler,
+  showAll,
+  showActive,
+  showCompleted
+} from '../../actions';
 
 class Todos extends Component {
   render() {
     const { renderedTodos, todos, todo, dispatch } = this.props;
-    const { addTodo, searchTodo, deleteTodo, changeHandler } = actions;
+
     return (
       <div className="todosListContainer">
         <div className="header">
@@ -43,19 +53,19 @@ class Todos extends Component {
             type="button"
             classname="inputLink"
             todoValue="Show all"
-            clickHandler={() => dispatch(actions.showAll(todos))}
+            clickHandler={() => dispatch(showAll(todos))}
           />
           <Input
             type="button"
             classname="inputLink"
             todoValue="Active"
-            clickHandler={() => dispatch(actions.showActive(todos))}
+            clickHandler={() => dispatch(showActive(todos))}
           />
           <Input
             type="button"
             classname="inputLink"
             todoValue="Completed"
-            clickHandler={() => dispatch(actions.showCompleted(todos))}
+            clickHandler={() => dispatch(showCompleted(todos))}
           />
         </div>
       </div>
@@ -63,6 +73,8 @@ class Todos extends Component {
   }
 }
 
+// Return only the necessary things you want for the component not the whole state
+// Using the complete state would be an overkill for the component
 const mapStateToProps = (state) => state;
 
 export default connect(mapStateToProps)(Todos);
