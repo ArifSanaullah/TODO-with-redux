@@ -100,6 +100,7 @@ code {
   cursor: pointer;
   color: #5e5e5e;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .inputText {
@@ -162,7 +163,7 @@ code {
   width: 21.2rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
   margin-top: 3rem;
 }
