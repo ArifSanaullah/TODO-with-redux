@@ -1,5 +1,8 @@
 import * as actionTypes from "../constants";
 
+
+// ALL OF THE ACTION TYPES SHOULD BE IN UPPERCASE 
+// e.g export const ADDTODO = "ADDTODO"
 export const addTodo = actionTypes.ADD_TODO;
 export const deleteTodo = actionTypes.DELETE_TODO;
 export const editTodo = actionTypes.EDIT_TODO;

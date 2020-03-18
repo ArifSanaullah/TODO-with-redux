@@ -6,6 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
 import store from "./store";
 
+// Great work on the App 
+// but we normally keep everything related to redux in a separate folder called store, state or appState
+// all folders related to redux can then go in there 
 ReactDOM.render(
     <Provider store={store}>
         <App />

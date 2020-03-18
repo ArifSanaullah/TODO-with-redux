@@ -1,5 +1,7 @@
 import * as actionTypes from "../actionTypes";
 
+// ACTION TYPES SHOULD ALWAYS BE IN UPPERCASE 
+// e.g actionTypes.ADD_TODO
 export const addTodo = (e) => {
   return {
     type: actionTypes.addTodo,

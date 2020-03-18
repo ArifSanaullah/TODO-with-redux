@@ -37,4 +37,5 @@ Input.propTypes = {
   checked: PropTypes.bool
 };
 
-export default connect()(Input);
+export default Input
+// export default connect()(Input);
