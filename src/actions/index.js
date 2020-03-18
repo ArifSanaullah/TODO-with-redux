@@ -2,56 +2,56 @@ import * as actionTypes from "../actionTypes";
 
 // ACTION TYPES SHOULD ALWAYS BE IN UPPERCASE 
 // e.g actionTypes.ADD_TODO
-export const addTodo = (e) => {
+export const ADD_TODO = (e) => {
   return {
-    type: actionTypes.addTodo,
+    type: actionTypes.ADD_TODO,
     whichKey: e.which,
     payload: { todo: { value: e.target.value } }
   };
 };
 
-export const changeHandler = (e, todo) => {
+export const CHANGE_HANDLER = (e, todo) => {
   return {
-    type: actionTypes.changeHandler,
+    type: actionTypes.CHANGE_HANDLER,
     payload: { todo: { ...todo, value: e.target.value } }
   };
 };
 
-export const deleteTodo = (todoid) => {
-  return { type: actionTypes.deleteTodo, payload: { todoid } };
+export const DELETE_TODO = (todoid) => {
+  return { type: actionTypes.DELETE_TODO, payload: { todoid } };
 };
 
-export const searchTodo = (e) => {
+export const SEARCH_TODO = (e) => {
   return {
-    type: actionTypes.searchTodo,
+    type: actionTypes.SEARCH_TODO,
     payload: { searchQuery: e.target.value }
   };
 };
 
-export const handleCompleted = (todo) => {
+export const HANDLE_COMPLETED = (todo) => {
   return {
-    type: actionTypes.handleCompleted,
+    type: actionTypes.HANDLE_COMPLETED,
     payload: { ...todo }
   };
 };
 
-export const showAll = (todos) => {
+export const SHOW_ALL = (todos) => {
   return {
-    type: actionTypes.showAll,
+    type: actionTypes.SHOW_ALL,
     payload: { todos }
   };
 };
 
-export const showActive = (todos) => {
+export const SHOW_ACTIVE = (todos) => {
   return {
-    type: actionTypes.showActive,
+    type: actionTypes.SHOW_ACTIVE,
     payload: { todos }
   };
 };
 
-export const showCompleted = (todos) => {
+export const SHOW_COMPLETED = (todos) => {
   return {
-    type: actionTypes.showCompleted,
+    type: actionTypes.SHOW_COMPLETED,
     payload: { todos }
   };
 };

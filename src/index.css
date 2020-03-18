@@ -37,14 +37,11 @@ code {
   flex-direction: column;
 }
 
-.body {
-}
-
 .todoList {
   list-style: none;
   display: flex;
   flex-direction: column;
-  width: 16rem;
+  width: 21.2rem;
   margin-top: 2rem;
 }
 
@@ -89,7 +86,20 @@ code {
   padding-left: 1rem;
   min-width: 16rem;
   font-size: 16px;
-  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.inputBtnPrimary {
+  width: 4.2rem;
+  display: inline-block;
+  margin-left: 1rem;
+  padding: 0.5rem 0.3rem;
+  background: none;
+  border: 1px solid #949494;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #5e5e5e;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .inputText {
@@ -149,7 +159,7 @@ code {
 }
 
 .footer {
-  width: 16rem;
+  width: 21.2rem;
   display: flex;
   align-items: center;
   justify-content: space-around;

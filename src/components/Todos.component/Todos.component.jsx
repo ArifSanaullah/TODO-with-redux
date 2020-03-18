@@ -2,17 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import TodoComponent from "../Todo.component/Todo.component";
 import Input from "../Input.component/Input.component";
-// import * as actions from "../../actions";
-// use library or module level destructuring here 
 import {
-  addTodo,
-  searchTodo,
-  deleteTodo,
-  changeHandler,
-  showAll,
-  showActive,
-  showCompleted
-} from '../../actions';
+  ADD_TODO,
+  SEARCH_TODO,
+  DELETE_TODO,
+  CHANGE_HANDLER,
+  SHOW_ALL,
+  SHOW_ACTIVE,
+  SHOW_COMPLETED
+} from "../../actions";
 
 class Todos extends Component {
   render() {
@@ -25,16 +23,23 @@ class Todos extends Component {
             placeholder="Search Todo"
             type="search"
             classname="inputText"
-            changeHandler={(e) => dispatch(searchTodo(e))}
+            changeHandler={(e) => dispatch(SEARCH_TODO(e))}
           />
-          <Input
-            placeholder="Add Todo"
-            type="text"
-            classname="inputSearch"
-            todoValue={todo.value}
-            keyDownHandler={(e) => dispatch(addTodo(e))}
-            changeHandler={(e) => dispatch(changeHandler(e, todo))}
-          />
+          <div>
+            <Input
+              placeholder="Add Todo"
+              type="text"
+              classname="inputSearch"
+              todoValue={todo.value}
+              keyDownHandler={(e) => dispatch(ADD_TODO(e))}
+              changeHandler={(e) => dispatch(CHANGE_HANDLER(e, todo))}
+            />
+            <Input
+              todoValue="Add todo"
+              classname="inputBtnPrimary"
+              type="button"
+            />
+          </div>
         </div>
         <div className="body">
           <ul className="todoList">
@@ -43,7 +48,7 @@ class Todos extends Component {
                 <TodoComponent
                   todo={todo}
                   key={index}
-                  deleteHandler={() => dispatch(deleteTodo(todo.id))}
+                  deleteHandler={() => dispatch(DELETE_TODO(todo.id))}
                 />
               ))}
           </ul>
@@ -53,19 +58,19 @@ class Todos extends Component {
             type="button"
             classname="inputLink"
             todoValue="Show all"
-            clickHandler={() => dispatch(showAll(todos))}
+            clickHandler={() => dispatch(SHOW_ALL(todos))}
           />
           <Input
             type="button"
             classname="inputLink"
             todoValue="Active"
-            clickHandler={() => dispatch(showActive(todos))}
+            clickHandler={() => dispatch(SHOW_ACTIVE(todos))}
           />
           <Input
             type="button"
             classname="inputLink"
             todoValue="Completed"
-            clickHandler={() => dispatch(showCompleted(todos))}
+            clickHandler={() => dispatch(SHOW_COMPLETED(todos))}
           />
         </div>
       </div>
@@ -75,6 +80,9 @@ class Todos extends Component {
 
 // Return only the necessary things you want for the component not the whole state
 // Using the complete state would be an overkill for the component
-const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => {
+  const { renderedTodos, todos, todo, dispatch } = state;
+  return { renderedTodos, todos, todo, dispatch };
+};
 
 export default connect(mapStateToProps)(Todos);

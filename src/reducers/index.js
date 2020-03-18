@@ -25,28 +25,28 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.addTodo:
+    case actionTypes.ADD_TODO:
       return addTodo(state, action);
     
-    case actionTypes.changeHandler:
+    case actionTypes.CHANGE_HANDLER:
       return changeHandler(state, action);
 
-    case actionTypes.deleteTodo:
+    case actionTypes.DELETE_TODO:
       return deleteTodo(state, action);
 
-    case actionTypes.searchTodo:
+    case actionTypes.SEARCH_TODO:
       return searchTodo(state, action);
 
-    case actionTypes.handleCompleted:
+    case actionTypes.HANDLE_COMPLETED:
       return handleCompleted(state, action);
     
-    case actionTypes.showAll:
+    case actionTypes.SHOW_ALL:
       return showAll(state, action);
     
-    case actionTypes.showActive:
+    case actionTypes.SHOW_ACTIVE:
       return showActive(state, action);
     
-    case actionTypes.showCompleted:
+    case actionTypes.SHOW_COMPLETED:
       return showCompleted(state, action);
 
     default:
