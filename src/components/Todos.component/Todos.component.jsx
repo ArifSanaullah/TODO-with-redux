@@ -4,6 +4,7 @@ import TodoComponent from "../Todo.component/Todo.component";
 import Input from "../Input.component/Input.component";
 import {
   ADD_TODO,
+  ADD_TODO_BY_BUTTON,
   SEARCH_TODO,
   DELETE_TODO,
   CHANGE_HANDLER,
@@ -38,6 +39,7 @@ class Todos extends Component {
               todoValue="Add todo"
               classname="inputBtnPrimary"
               type="button"
+              clickHandler={() => dispatch(ADD_TODO_BY_BUTTON(todo))}
             />
           </div>
         </div>

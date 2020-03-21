@@ -1,5 +1,6 @@
 import * as actionTypes from "../actionTypes";
 import addTodo from "./addTodo.reducer";
+import addTodoByButton from "./addTodoByButton.reducer";
 import deleteTodo from "./deleteTodo.reducer";
 import changeHandler from "./changeHandler.reducer";
 import searchTodo from "./searchTodo.reducer";
@@ -27,6 +28,9 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_TODO:
       return addTodo(state, action);
+    
+    case actionTypes.ADD_TODO_BY_BUTTON:
+      return addTodoByButton(state, action);
     
     case actionTypes.CHANGE_HANDLER:
       return changeHandler(state, action);

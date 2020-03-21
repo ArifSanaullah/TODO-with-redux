@@ -10,6 +10,13 @@ export const ADD_TODO = (e) => {
   };
 };
 
+export const ADD_TODO_BY_BUTTON = (todo) => {
+  return {
+    type: actionTypes.ADD_TODO_BY_BUTTON,
+    payload: { ...todo }
+  };
+};
+
 export const CHANGE_HANDLER = (e, todo) => {
   return {
     type: actionTypes.CHANGE_HANDLER,
