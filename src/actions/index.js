@@ -5,7 +5,6 @@ import * as actionTypes from "../actionTypes";
 export const ADD_TODO = (e) => {
   return {
     type: actionTypes.ADD_TODO,
-    whichKey: e.which,
     payload: { todo: { value: e.target.value } }
   };
 };

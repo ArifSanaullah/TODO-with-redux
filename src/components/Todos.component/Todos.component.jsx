@@ -32,7 +32,7 @@ class Todos extends Component {
               type="text"
               classname="inputSearch"
               todoValue={todo.value}
-              keyDownHandler={(e) => dispatch(ADD_TODO(e))}
+              keyDownHandler={(e) => e.which === 13 && dispatch(ADD_TODO(e))}
               changeHandler={(e) => dispatch(CHANGE_HANDLER(e, todo))}
             />
             <Input
