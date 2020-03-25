@@ -13,3 +13,6 @@ export const HANDLE_COMPLETED = actionTypes.HANDLE_COMPLETED;
 export const SHOW_ALL = actionTypes.SHOW_ALL;
 export const SHOW_ACTIVE = actionTypes.SHOW_ACTIVE;
 export const SHOW_COMPLETED = actionTypes.SHOW_COMPLETED;
+export const HANDLE_LOGIN = actionTypes.HANDLE_LOGIN;
+export const USERNAME_CHANGE_HANDLER = actionTypes.USERNAME_CHANGE_HANDLER;
+export const PASSWORD_CHANGE_HANDLER = actionTypes.PASSWORD_CHANGE_HANDLER;

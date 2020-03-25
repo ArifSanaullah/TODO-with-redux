@@ -1,6 +1,6 @@
 import * as actionTypes from "../actionTypes";
 
-// ACTION TYPES SHOULD ALWAYS BE IN UPPERCASE 
+// ACTION TYPES SHOULD ALWAYS BE IN UPPERCASE
 // e.g actionTypes.ADD_TODO
 export const ADD_TODO = (e) => {
   return {
@@ -61,3 +61,32 @@ export const SHOW_COMPLETED = (todos) => {
     payload: { todos }
   };
 };
+
+export const HANDLE_LOGIN = (event, username, password) => {
+  event.preventDefault();
+  const isUserNameValid = (username) => /^[a-zA-Z0-9]+$/.test(username);
+
+  const isPasswordValid = (password) =>
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(password);
+
+  const isUserLoggedIn = isUserNameValid(username) && isPasswordValid(password);
+
+  return {
+    type: actionTypes.HANDLE_LOGIN,
+    payload: { isUserLoggedIn }
+  };
+};
+
+export const USERNAME_CHANGE_HANDLER = (event) => {
+  return {
+    type: actionTypes.USERNAME_CHANGE_HANDLER,
+    payload: { username: event.target.value }
+  };
+};
+
+export const PASSWORD_CHANGE_HANDLER = (event) => {
+  return {
+    type: actionTypes.PASSWORD_CHANGE_HANDLER,
+    payload: {password: event.target.value}
+  }
+}

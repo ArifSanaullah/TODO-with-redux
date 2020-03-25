@@ -8,6 +8,9 @@ import handleCompleted from "./handleCompleted.reducer";
 import showAll from "./showAll.reducer";
 import showActive from "./showActive.reducer";
 import showCompleted from "./showCompleted.reducer";
+import handleLogin from "./handleLogin.reducer";
+import usernameChangeHandler from "./usernameChangeHandler.reducer";
+import passwordChangeHandler from "./passwordChangeHandler.reducer";
 
 // Good work on breaking the functionality of the reducer into multiple functions
 // But if you see the number of files in the reducer folder is quite large for such a small app 
@@ -21,7 +24,10 @@ const initialState = {
     id: Date.now()
   },
   todos: [],
-  renderedTodos: []
+  renderedTodos: [],
+  username: "",
+  password: "",
+  isUserLoggedIn: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -53,6 +59,15 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SHOW_COMPLETED:
       return showCompleted(state, action);
 
+    case actionTypes.HANDLE_LOGIN:
+      return handleLogin(state, action);
+    
+    case actionTypes.USERNAME_CHANGE_HANDLER:
+      return usernameChangeHandler(state, action);
+    
+    case actionTypes.PASSWORD_CHANGE_HANDLER:
+      return passwordChangeHandler(state, action);
+    
     default:
       return state;
   }
