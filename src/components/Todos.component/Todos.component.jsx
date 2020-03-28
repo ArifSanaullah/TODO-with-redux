@@ -21,7 +21,7 @@ class Todos extends Component {
     console.log(rest);
     return (
       <div className="todosListContainer">
-        <div className="header">
+        <div className="header">  
           <Input
             placeholder="Search Todo"
             type="search"
