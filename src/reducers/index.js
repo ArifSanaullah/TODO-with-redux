@@ -1,76 +1,20 @@
-import * as actionTypes from "../actionTypes";
-import addTodo from "./addTodo.reducer";
-import addTodoByButton from "./addTodoByButton.reducer";
-import deleteTodo from "./deleteTodo.reducer";
-import changeHandler from "./changeHandler.reducer";
-import searchTodo from "./searchTodo.reducer";
-import handleCompleted from "./handleCompleted.reducer";
-import showAll from "./showAll.reducer";
-import showActive from "./showActive.reducer";
-import showCompleted from "./showCompleted.reducer";
-import handleLogin from "./handleLogin.reducer";
-import usernameChangeHandler from "./usernameChangeHandler.reducer";
-import passwordChangeHandler from "./passwordChangeHandler.reducer";
+import { combineReducers } from "redux";
+import { authReducers } from "./auth.reducers";
+import { todoReducers } from "./todo.reducers";
+import { todosReducers } from "./todos.reducers";
+import { visibilityFiltersReducers } from "./visibilityFilters.reducers";
 
 // Good work on breaking the functionality of the reducer into multiple functions
-// But if you see the number of files in the reducer folder is quite large for such a small app 
-// If we keep this convention for a big app the reducer files would be in hundreds or thousands 
+// But if you see the number of files in the reducer folder is quite large for such a small app
+// If we keep this convention for a big app the reducer files would be in hundreds or thousands
 // what we normally do is breakup individual reducers by entity not the cases from switch themselves
-// entity could be Users, Shopping Cart, Checkout-Form etc 
-const initialState = {
-  todo: {
-    value: "",
-    completed: false,
-    id: Date.now()
-  },
-  todos: [],
-  renderedTodos: [],
-  username: "",
-  password: "",
-  isUserLoggedIn: false
-};
+// entity could be Users, Shopping Cart, Checkout-Form etc
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case actionTypes.ADD_TODO:
-      return addTodo(state, action);
-    
-    case actionTypes.ADD_TODO_BY_BUTTON:
-      return addTodoByButton(state, action);
-    
-    case actionTypes.CHANGE_HANDLER:
-      return changeHandler(state, action);
+const rootReducer = combineReducers({
+  authReducers,
+  todoReducers,
+  todosReducers,
+  visibilityFiltersReducers
+});
 
-    case actionTypes.DELETE_TODO:
-      return deleteTodo(state, action);
-
-    case actionTypes.SEARCH_TODO:
-      return searchTodo(state, action);
-
-    case actionTypes.HANDLE_COMPLETED:
-      return handleCompleted(state, action);
-    
-    case actionTypes.SHOW_ALL:
-      return showAll(state, action);
-    
-    case actionTypes.SHOW_ACTIVE:
-      return showActive(state, action);
-    
-    case actionTypes.SHOW_COMPLETED:
-      return showCompleted(state, action);
-
-    case actionTypes.HANDLE_LOGIN:
-      return handleLogin(state, action);
-    
-    case actionTypes.USERNAME_CHANGE_HANDLER:
-      return usernameChangeHandler(state, action);
-    
-    case actionTypes.PASSWORD_CHANGE_HANDLER:
-      return passwordChangeHandler(state, action);
-    
-    default:
-      return state;
-  }
-};
-
-export default reducer;
+export default rootReducer;

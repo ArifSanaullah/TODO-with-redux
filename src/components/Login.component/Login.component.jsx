@@ -1,17 +1,11 @@
 import React from "react";
 import Input from "../Input.component/Input.component";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import { USERNAME_CHANGE_HANDLER, PASSWORD_CHANGE_HANDLER, HANDLE_LOGIN } from "../../actions/auth.actions" ;
 
 class Login extends React.Component {
   render() {
-    const { dispatch, username, password } = this.props;
-    console.log(this.props);
-    const {
-      USERNAME_CHANGE_HANDLER,
-      HANDLE_LOGIN,
-      PASSWORD_CHANGE_HANDLER
-    } = actions;
+    const { dispatch, username, password, history } = this.props;
     return (
       <form>
         <Input
@@ -30,7 +24,7 @@ class Login extends React.Component {
           type="submit"
           todoValue="Login"
           clickHandler={(e) => {
-            return dispatch(HANDLE_LOGIN(e, username, password));
+            return dispatch(HANDLE_LOGIN(e, username, password, history));
           }}
         />
       </form>
@@ -39,8 +33,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { username, password, dispatch, history } = state;
-  return { username, password, dispatch, history };
+  return state.authReducers
 };
 
 export default connect(mapStateToProps)(Login);

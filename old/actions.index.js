@@ -62,7 +62,7 @@ export const SHOW_COMPLETED = (todos) => {
   };
 };
 
-export const HANDLE_LOGIN = (event, username, password) => {
+export const HANDLE_LOGIN = (event, username, password, history) => {
   event.preventDefault();
   const isUserNameValid = (username) => /^[a-zA-Z0-9]+$/.test(username);
 
@@ -70,6 +70,8 @@ export const HANDLE_LOGIN = (event, username, password) => {
     /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(password);
 
   const isUserLoggedIn = isUserNameValid(username) && isPasswordValid(password);
+
+  isUserLoggedIn && history.push("/home");
 
   return {
     type: actionTypes.HANDLE_LOGIN,

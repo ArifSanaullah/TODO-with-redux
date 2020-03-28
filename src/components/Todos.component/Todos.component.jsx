@@ -2,21 +2,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import TodoComponent from "../Todo.component/Todo.component";
 import Input from "../Input.component/Input.component";
+import { DELETE_TODO } from "../../actions/todo.actions";
 import {
-  ADD_TODO,
-  ADD_TODO_BY_BUTTON,
-  SEARCH_TODO,
-  DELETE_TODO,
   CHANGE_HANDLER,
+  SEARCH_TODO,
+  ADD_TODO,
+  ADD_TODO_BY_BUTTON
+} from "../../actions/todos.actions";
+import {
   SHOW_ALL,
   SHOW_ACTIVE,
   SHOW_COMPLETED
-} from "../../actions";
+} from "../../actions/visibilityFilters.actions";
 
 class Todos extends Component {
   render() {
-    const { renderedTodos, todos, todo, dispatch } = this.props;
-
+    const { renderedTodos, todos, todo, dispatch, ...rest } = this.props;
+    console.log(rest);
     return (
       <div className="todosListContainer">
         <div className="header">
@@ -60,19 +62,19 @@ class Todos extends Component {
             type="button"
             classname="inputLink"
             todoValue="Show all"
-            clickHandler={() => dispatch(SHOW_ALL(todos))}
+            clickHandler={() => dispatch(SHOW_ALL(renderedTodos))}
           />
           <Input
             type="button"
             classname="inputLink"
             todoValue="Active"
-            clickHandler={() => dispatch(SHOW_ACTIVE(todos))}
+            clickHandler={() => dispatch(SHOW_ACTIVE(renderedTodos))}
           />
           <Input
             type="button"
             classname="inputLink"
             todoValue="Completed"
-            clickHandler={() => dispatch(SHOW_COMPLETED(todos))}
+            clickHandler={() => dispatch(SHOW_COMPLETED(renderedTodos))}
           />
         </div>
       </div>
@@ -83,8 +85,9 @@ class Todos extends Component {
 // Return only the necessary things you want for the component not the whole state
 // Using the complete state would be an overkill for the component
 const mapStateToProps = (state) => {
-  const { renderedTodos, todos, todo, dispatch } = state;
-  return { renderedTodos, todos, todo, dispatch };
+  const { todo, todos, renderedTodos, dispatch } = state.visibilityFiltersReducers;
+  // const { todo, renderedTodos, todos, dispatch } = state.todosReducers;
+  return { todos, todo, dispatch, renderedTodos, ...state };
 };
 
 export default connect(mapStateToProps)(Todos);

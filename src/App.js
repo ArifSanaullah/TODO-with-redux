@@ -7,17 +7,12 @@ import Login from "./components/Login.component/Login.component";
 
 class App extends React.Component {
   render() {
-    const { isUserLoggedIn } = this.props;
     return (
       <Router>
         <div className="container">
           <Switch>
-            <Route exact path="/">
-              <Login />
-            </Route>
-            {isUserLoggedIn || (
-              <Route exact path="/home" render={props => <TodosComponent {...props} />} />
-            )}
+            <Route exact path="/" render={(props) => <Login {...props} />} />
+              <Route exact path="/home" component={TodosComponent} />
           </Switch>
         </div>
       </Router>
@@ -25,8 +20,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { isUserLoggedIn } = state;
-  return { isUserLoggedIn };
-};
-export default connect(mapStateToProps)(App);
+export default connect()(App);
